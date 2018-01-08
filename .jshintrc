@@ -1,0 +1,25 @@
+{
+  "node": true,
+  "esversion": 6,
+  "bitwise": true,
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "latedef": "nofunc",
+  "newcap": true,
+  "noarg": true,
+  "undef": true,
+  "unused": true,
+  "strict": true,
+  "smarttabs": true,
+  "asi": true,
+  "debug": true,
+  "globals": {
+    "describe": true,
+    "before": true,
+    "beforeEach": true,
+    "afterEach": true,
+    "after": true,
+    "it": true
+  }
+}

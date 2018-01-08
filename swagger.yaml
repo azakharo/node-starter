@@ -1,0 +1,302 @@
+swagger: '2.0'
+info:
+  description: >-
+    WebStarter is a boilerplate project. It's based on Angular Fullstack
+    generator. It contains both: client and server.
+  version: 1.0.0
+  title: WebStarter
+  contact:
+    email: zangular@yandex.ru
+host: '127.0.0.1:9000'
+basePath: /
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  AuthSecurity:
+    type: apiKey
+    in: header
+    name: Authorization
+paths:
+  /api/things:
+    get:
+      tags:
+        - things
+      summary: List all thing
+      responses:
+        '200':
+          description: All things stored
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Thing'
+    post:
+      tags:
+        - things
+      summary: Add a new thing
+      security:
+        - AuthSecurity: []
+      parameters:
+        - name: new thing
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Thing'
+      responses:
+        '201':
+          description: The thing has been added successfully
+          schema:
+            $ref: '#/definitions/Thing'
+        '400':
+          description: name is missing
+        '401':
+          $ref: '#/responses/StdResp401'
+  '/api/things/{thingId}':
+    parameters:
+      - name: thingId
+        in: path
+        description: Thing ID
+        required: true
+        type: string
+    get:
+      tags:
+        - things
+      summary: Get thing by ID
+      description: Returns a single thing
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Thing'
+        '404':
+          description: Thing not found
+    put:
+      tags:
+        - things
+      summary: Update an existing thing
+      security:
+        - AuthSecurity: []
+      parameters:
+        - name: new thing value
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Thing'
+      responses:
+        '200':
+          description: successful update
+        '401':
+          $ref: '#/responses/StdResp401'
+        '404':
+          description: Thing not found
+    delete:
+      tags:
+        - things
+      summary: Delete thing
+      security:
+        - AuthSecurity: []
+      responses:
+        '200':
+          description: The thing has been deleted successfully
+        '401':
+          $ref: '#/responses/StdResp401'
+        '404':
+          description: Thing not found
+  /api/users:
+    get:
+      tags:
+        - users
+      summary: List all users
+      security:
+        - AuthSecurity: []
+      responses:
+        '200':
+          description: All users registered
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+        '401':
+          $ref: '#/responses/StdResp401'
+    post:
+      tags:
+        - users
+      summary: Add new user
+      security:
+        - AuthSecurity: []
+      parameters:
+        - name: new user
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      produces:
+        - application/json
+        - text/plain
+      responses:
+        '200':
+          description: The user has been added successfully
+          schema:
+            properties:
+              token:
+                type: string
+        '401':
+          $ref: '#/responses/StdResp401'
+        '403':
+          description: 'something wrong with input data, probably with email'
+          schema:
+            type: string
+            example: The specified email address is already in use.
+  /api/users/me:
+    get:
+      tags:
+        - users
+      summary: Get current user
+      security:
+        - AuthSecurity: []
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/User'
+        '401':
+          $ref: '#/responses/StdResp401'
+  '/api/users/{userId}':
+    parameters:
+      - $ref: '#/parameters/userId'
+    get:
+      tags:
+        - users
+      summary: Get user by ID
+      description: Returns a single user
+      security:
+        - AuthSecurity: []
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/User'
+        '401':
+          $ref: '#/responses/StdResp401'
+        '404':
+          description: User not found
+    delete:
+      tags:
+        - users
+      summary: Deletes a thing
+      security:
+        - AuthSecurity: []
+      responses:
+        '200':
+          description: OK
+        '401':
+          $ref: '#/responses/StdResp401'
+        '404':
+          description: Not found
+  '/api/users/{userId}/password':
+    put:
+      tags:
+        - users
+      summary: Change user password
+      security:
+        - AuthSecurity: []
+      parameters:
+        - $ref: '#/parameters/userId'
+        - name: passwords
+          in: body
+          schema:
+            required:
+              - oldPassword
+              - newPassword
+            properties:
+              oldPassword:
+                type: string
+              newPassword:
+                type: string
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Invalid content supplied
+        '401':
+          $ref: '#/responses/StdResp401'
+  /auth/local:
+    post:
+      tags:
+        - users
+      summary: login
+      parameters:
+        - name: credentials
+          in: body
+          description: email and password
+          required: true
+          schema:
+            required:
+              - email
+              - password
+            properties:
+              email:
+                type: string
+                example: 'admin@admin.com'
+              password:
+                type: string
+                example: 'admin'
+      responses:
+        '200':
+          description: The user has been added logged in
+          schema:
+            properties:
+              token:
+                type: string
+                description: Auth token
+            required:
+              - token
+        '401':
+          $ref: '#/responses/StdResp401'
+definitions:
+  Thing:
+    type: object
+    required:
+      - name
+    properties:
+      _id:
+        type: string
+        readOnly: true
+      name:
+        type: string
+        example: Greate feature of Angular Fullstack Generator
+      info:
+        type: string
+      active:
+        type: boolean
+        default: true
+  User:
+    type: object
+    required:
+      - name
+      - email
+      - role
+    properties:
+      _id:
+        type: string
+        readOnly: true
+      name:
+        type: string
+      email:
+        type: string
+      role:
+        type: string
+responses:
+  StdResp401:
+    description: UNAUTHORIZED
+    schema:
+      type: string
+parameters:
+  userId:
+    name: userId
+    in: path
+    required: true
+    type: string
