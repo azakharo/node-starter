@@ -30,7 +30,6 @@ npm install -g generator-angular-fullstack@3.6.1
   * Tests via mocha/chai. Run <code>npm test</code>.
   * minimal server functions: body parsing, cookies, sessions, logging, etc.
 
-# linting?
 # How to use static
 # How to use auth
 # How to use sockets
