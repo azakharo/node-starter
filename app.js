@@ -32,10 +32,7 @@ if(config.seedDB) { require('./config/seed'); }
 const app = express();
 app.use(cors());
 const server = require('http').createServer(app);
-const socketio = require('socket.io')(server, {
-  serveClient: config.env !== 'production',
-  path: '/socket.io-client/dist'
-});
+const socketio = require('socket.io')(server);
 require('./config/socketio')(socketio);
 require('./config/express')(app);
 require('./routes')(app);
