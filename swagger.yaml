@@ -10,7 +10,7 @@ info:
 host: 'aza-node-starter.herokuapp.com'
 basePath: /
 schemes:
-  - http
+  - https
 consumes:
   - application/json
 produces:
