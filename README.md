@@ -30,10 +30,15 @@ npm install -g generator-angular-fullstack@3.6.1
   * Tests via mocha/chai. Run <code>npm test</code>.
   * minimal server functions: body parsing, cookies, sessions, logging, etc.
 
+
+# How to use auth and socket push notification
+
+See this repo's code (backend) and https://github.com/azakharo/react-starter.git repo (frontend) for example.
+
+
 # How to use static
-# How to use auth
-# How to use sockets
 # How to deploy
+
 
 # TODOs
 
