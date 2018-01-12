@@ -38,6 +38,8 @@ npm install -g generator-angular-fullstack@3.6.1
 
 # How to use static
 
+  Put you static content to public folder.
+
 
 # How to deploy to Heroku
 
@@ -60,13 +62,13 @@ npm install -g generator-angular-fullstack@3.6.1
 # TODOs
 
   * Halmet
-  * https
+  * https? What if I deploy to Heroku?
 
 
 # Run application in development mode
 
   1. node server/app.js
-  2. open in browser http://localhost:9000/docs/ for API documentation.
+  2. open in browser http://localhost:9000/docs for API documentation.
 
   or you can use *nodemon* instead of *node* to run the app.
 
@@ -75,4 +77,4 @@ npm install -g generator-angular-fullstack@3.6.1
 
   1. set NODE_ENV=production
   2. node server/app.js
-  3. open in browser http://your-address/docs/ for API documentation.
+  3. open in browser http://your-address/docs for API documentation.
