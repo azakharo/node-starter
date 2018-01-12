@@ -5,7 +5,7 @@
 'use strict';
 
 const express = require('express');
-const favicon = require('serve-favicon');
+// const favicon = require('serve-favicon');
 const morgan = require('morgan');
 const compression = require('compression');
 const bodyParser = require('body-parser');
@@ -42,7 +42,7 @@ module.exports = function(app) {
   app.set('appPath', config.root);
 
   if ('production' === env) {
-    app.use(favicon(path.join(config.root, 'favicon.ico')));
+    // app.use(favicon(path.join(config.root, 'favicon.ico')));
     app.use(morgan('dev'));
   }
 
