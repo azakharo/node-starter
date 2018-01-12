@@ -33,19 +33,34 @@ npm install -g generator-angular-fullstack@3.6.1
 
 # How to use auth and socket push notification
 
-See this repo's code (backend) and https://github.com/azakharo/react-starter.git repo (frontend) for example.
+  See this repo's code (backend) and https://github.com/azakharo/react-starter.git repo (frontend) for example.
 
 
 # How to use static
-# How to deploy
+
+
+# How to deploy to Heroku
+
+  First, read the docs: https://devcenter.heroku.com/articles/deploying-nodejs, https://www.sitepoint.com/how-to-deploy-node-applications-heroku-vs-now-sh/
+  After the reading and performing the preparations, the deployment is easy:
+  1. heroku create <app-name>
+  2. git push heroku master
+
+
+# Swagger documentation in production
+
+  For the Swagger documentation work in production do the following:
+  * open swagger.yaml file
+  * change 'host' value according to your application address.
+  * change 'schema' value if necessary.
+
+  Swagger documentation will be available at https://<your-app-name>.herokuapp.com/docs address.
 
 
 # TODOs
 
   * Halmet
   * https
-  * Auto deploy
-  * Swagger in production
 
 
 # Run application in development mode
