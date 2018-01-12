@@ -10,7 +10,7 @@ const all = {
   env: process.env.NODE_ENV,
 
   // Root path of server
-  root: process.env.FRONTEND_PATH || path.normalize(__dirname + '/../../public'),
+  root: process.env.FRONTEND_PATH || path.normalize(__dirname + './../../public'),
 
   // Server port
   port: process.env.PORT || 9000,
