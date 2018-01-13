@@ -9,6 +9,7 @@ If so, then this project is for you. And it's free!
 # Demo
 
 [Demo on heroku](https://pages.github.com/)
+
 Opening the link will probably take several seconds, because I am using a free
 account and the deployed application is sleeping.
 
