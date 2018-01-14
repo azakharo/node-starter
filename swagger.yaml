@@ -7,10 +7,11 @@ info:
   title: WebStarter
   contact:
     email: zangular@yandex.ru
-host: 'aza-node-starter.herokuapp.com'
+#host: 'aza-node-starter.herokuapp.com'
+host: 'localhost:9000'
 basePath: /
 schemes:
-  - https
+  - http
 consumes:
   - application/json
 produces:
