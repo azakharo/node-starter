@@ -8,7 +8,8 @@ If so, then this project is for you. And it's free!
 
 # Demo
 
-[Demo on heroku](https://aza-node-starter.herokuapp.com)
+[Interactive REST API documentation](https://aza-node-starter.herokuapp.com/docs/)  
+[Demo frontend which works with the REST API](https://aza-node-starter.herokuapp.com)
 
 Opening the link will probably take several seconds, because I am using a free
 account and the deployed application is sleeping.
