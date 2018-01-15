@@ -1,10 +1,14 @@
 swagger: '2.0'
 info:
   description: >-
-    WebStarter is a boilerplate project. It's based on Angular Fullstack
-    generator. It contains both: client and server.
+    node-starter is a boilerplate project.
+    First of all, you need to login. For this go to "users" section and find POST /auth/local operation.
+    Execute this operation using one of the following username/password pairs: admin@admin.com / admin, test@test.com / test.
+    In the response you find "token" field. Copy its value to clipboard. Then find "Authorize" green button on this page. Click it.
+    In "Value" field enter the following string "Bearer <token_value_from_clipboard>" and press "Authorize" button.
+    Now you are authorized to work with the API! Let's go and explore the API!
   version: 1.0.0
-  title: WebStarter
+  title: node-starter
   contact:
     email: zangular@yandex.ru
 host: 'aza-node-starter.herokuapp.com'
